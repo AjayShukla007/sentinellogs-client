@@ -1,0 +1,5 @@
+examples/
+tests/
+.github/
+.eslintrc
+jest.config.js

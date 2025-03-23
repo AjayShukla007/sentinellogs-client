@@ -1,0 +1,14 @@
+# .gitignore
+node_modules/
+dist/
+coverage/
+.env
+*.log
+*.env.local
+*.env.development.local
+# Exclude temporary files
+npmSteps.md
+.DS_Store
+.idea/
+.vscode/
+*.tsbuildinfo

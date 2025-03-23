@@ -1,0 +1,61 @@
+{
+  "name": "sentinellogs-client",
+  "version": "1.0.0",
+  "description": "Client library for Sentinel Logs structured logging service",
+  "main": "dist/main.js",
+  "types": "dist/main.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "prepublish": "npm run build",
+    "test": "ts-node test2.ts",
+    "example": "ts-node examples/simple-client.ts",
+    "clean": "rimraf dist",
+    "rebuild": "npm run clean && npm run build",
+    "lint": "eslint . --ext .ts"
+  },
+  "author": "Ajay",
+  "license": "MIT",
+  "keywords": [
+    "log",
+    "logger",
+    "monitoring",
+    "grpc",
+    "sentinel",
+    "logging",
+    "structured-logs",
+    "sentinellogs"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AjayShukla007/sentinellogs-client.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AjayShukla007/sentinellogs-client/issues"
+  },
+  "homepage": "https://github.com/AjayShukla007/sentinellogs-client#readme",
+  "dependencies": {
+    "@grpc/grpc-js": "^1.8.0",
+    "@grpc/proto-loader": "^0.7.5"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.18",
+    "dotenv": "^16.4.7",
+    "grpc-tools": "^1.13.0",
+    "rimraf": "^5.0.0",
+    "ts-node": "^10.9.1",
+    "ts-proto": "^2.6.1",
+    "typescript": "^4.9.4",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.1",
+    "@types/jest": "^29.5.0",
+    "eslint": "^8.45.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0"
+  },
+  "files": [
+    "dist",
+    "proto",
+    "LICENSE",
+    "README.md"
+  ]
+}

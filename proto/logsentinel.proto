@@ -1,0 +1,80 @@
+syntax = "proto3";
+
+package logsentinel;
+
+option go_package = "github.com/AjayShukla007/logsentinel/proto";
+
+service LogService {
+  rpc StreamLogs(LogRequest) returns (stream LogResponse) {}
+  rpc SendLog(LogRequest) returns (LogResponse) {}
+  rpc BatchSendLogs(stream LogRequest) returns (BatchLogResponse) {}
+  rpc ConnectClient(stream ClientMessage) returns (stream ServerMessage) {}
+}
+
+message LogRequest {
+  string client_id = 1;
+  string project_id = 2;
+  string api_key = 3;
+  string category = 4;
+  string message = 5;
+}
+
+message LogResponse {
+  bool success = 1;
+  string message = 2;
+}
+
+message BatchLogResponse {
+  bool success = 1;
+  string message = 2;
+  int32 count = 3;
+}
+
+message ClientMessage {
+  oneof message {
+    AuthRequest auth = 1;      // For initial authentication
+    LogMessage log = 2;        // For sending logs
+    HeartbeatMessage ping = 3; // For keeping connection alive
+    CloseRequest close = 4;    // For closing connection
+  }
+}
+
+message ServerMessage {
+  oneof message {
+    AuthResponse auth_response = 1;  // Authentication result
+    LogResponse log_response = 2;    // Log receipt confirmation
+    HeartbeatMessage pong = 3;       // Server heartbeat response
+    ErrorMessage error = 4;          // Error notifications
+  }
+}
+
+message AuthRequest {
+  string client_id = 1;
+  string project_id = 2;
+  string api_key = 3;
+}
+
+message AuthResponse {
+  bool success = 1;
+  string session_id = 2;
+  string message = 3;
+}
+
+message LogMessage {
+  string category = 1;
+  string message = 2;
+  map<string, string> metadata = 3;
+}
+
+message HeartbeatMessage {
+  int64 timestamp = 1;
+}
+
+message CloseRequest {
+  string reason = 1;
+}
+
+message ErrorMessage {
+  string code = 1;
+  string message = 2;
+}
