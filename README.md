@@ -1,3 +1,17 @@
+> ⚠️ **WARNING: PRE-RELEASE VERSION** ⚠️
+> 
+> This package is currently in pre-release development and is not yet available for production use.
+> The API may change before the initial stable release. Please check back later for the official release.
+<!-- > ⚠️ **WARNING: UNDER DEVELOPMENT** ⚠️
+> 
+> This package is still in development and is not ready for production use.
+> Please check back later for the release. -->
+<!-- > ⚠️ **WARNING: UNDER DEVELOPMENT** ⚠️
+> 
+> This package is still in active development and is not ready for production use.
+> Please check back later for a stable release. -->
+
+
 # LogSentinel Client
 
 [![npm version](https://badge.fury.io/js/logsentinel-client.svg)](https://badge.fury.io/js/logsentinel-client)
